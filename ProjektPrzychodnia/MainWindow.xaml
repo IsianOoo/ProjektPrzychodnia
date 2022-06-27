@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="ShowPatient" Content="Pacjent" HorizontalAlignment="Left" Height="47" Margin="46,141,0,0" VerticalAlignment="Top" Width="152"/>
+        <Button x:Name="ShowDoctor" Content="Lekarz" HorizontalAlignment="Left" Height="47" Margin="314,141,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="1.75,0.48"/>
+        <Button x:Name="ShowVisit" Content="Wizyty" HorizontalAlignment="Left" Height="47" Margin="588,141,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="1.75,0.48"/>
     </Grid>
 </Window>
