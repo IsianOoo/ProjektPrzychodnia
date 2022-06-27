@@ -24,5 +24,20 @@ namespace ProjektPrzychodnia
         {
             InitializeComponent();
         }
+
+        private void ShowPatient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowDoctor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowVisit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

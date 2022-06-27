@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="ShowPatient" Content="Pacjent" HorizontalAlignment="Left" Height="47" Margin="46,141,0,0" VerticalAlignment="Top" Width="152"/>
-        <Button x:Name="ShowDoctor" Content="Lekarz" HorizontalAlignment="Left" Height="47" Margin="314,141,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="1.75,0.48"/>
-        <Button x:Name="ShowVisit" Content="Wizyty" HorizontalAlignment="Left" Height="47" Margin="588,141,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="1.75,0.48"/>
+        <Button x:Name="ShowPatient" Content="Pacjent" HorizontalAlignment="Left" Height="47" Margin="46,141,0,0" VerticalAlignment="Top" Width="152" Click="ShowPatient_Click"/>
+        <Button x:Name="ShowDoctor" Content="Lekarz" HorizontalAlignment="Left" Height="47" Margin="300,141,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="1.75,0.48" Click="ShowDoctor_Click"/>
+        <Button x:Name="ShowVisit" Content="Wizyty" HorizontalAlignment="Left" Height="47" Margin="588,141,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="1.75,0.48" Click="ShowVisit_Click"/>
+        <TextBlock x:Name="TitleText" HorizontalAlignment="Left" Margin="164,44,0,0" TextWrapping="Wrap" Text="Przychodnia Lekarska" VerticalAlignment="Top" Height="39" Width="431" FontSize="24" TextAlignment="Center"/>
     </Grid>
 </Window>
