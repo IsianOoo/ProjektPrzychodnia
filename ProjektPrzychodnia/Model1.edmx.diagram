@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0bd33a69be943ea9fdfe01a103e9fda" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="masterModel.Adres" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.dawkowanie" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Diagnoza" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Lekarstwa" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Lekarz" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Pacjent" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Wizyta" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="masterModel.FK__Adres__Id_pacjen__04459E07" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__dawkowani__Id_di__10AB74EC" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__dawkowani__Id_le__119F9925" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__Diagnoza__Id_lek__0CDAE408" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__Diagnoza__Id_wiz__0DCF0841" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__Wizyta__Id_lekar__09FE775D" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__Wizyta__Id_pacje__090A5324" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

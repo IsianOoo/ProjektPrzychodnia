@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="Id_pacjenta" />
+          </Key>
+          <Property Name="Id_pacjenta" Type="int" Nullable="false" />
+          <Property Name="Miasto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ulica" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nr_domu_mieszkania" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dawkowanie">
+          <Key>
+            <PropertyRef Name="Id_dawkowanie" />
+          </Key>
+          <Property Name="Id_dawkowanie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Od_kiedy" Type="date" />
+          <Property Name="Do_kiedy" Type="date" />
+          <Property Name="ilość_dziennie" Type="int" />
+          <Property Name="Komentarz" Type="varchar" MaxLength="150" />
+          <Property Name="Id_diagnozy" Type="int" Nullable="false" />
+          <Property Name="Id_lekarstwa" Type="int" />
+        </EntityType>
+        <EntityType Name="Diagnoza">
+          <Key>
+            <PropertyRef Name="Id_diagnozy" />
+          </Key>
+          <Property Name="Id_diagnozy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Jednostka_Chorobowa" Type="varchar" MaxLength="200" />
+          <Property Name="Id_lekarza" Type="int" Nullable="false" />
+          <Property Name="Id_wizyty" Type="int" />
+        </EntityType>
+        <EntityType Name="Lekarstwa">
+          <Key>
+            <PropertyRef Name="Id_lekarstwa" />
+          </Key>
+          <Property Name="Id_lekarstwa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lekarz">
+          <Key>
+            <PropertyRef Name="Id_lekarza" />
+          </Key>
+          <Property Name="Id_lekarza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.MSreplication_options' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Pacjent">
+          <Key>
+            <PropertyRef Name="Id_pacjenta" />
+          </Key>
+          <Property Name="Id_pacjenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pesel" Type="char" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_fallback_db' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_fallback_dev' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_fallback_usg' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'master.dbo.spt_monitor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Wizyta">
+          <Key>
+            <PropertyRef Name="Id_wizyty" />
+          </Key>
+          <Property Name="Id_wizyty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_lekarza" Type="int" Nullable="false" />
+          <Property Name="Id_pacjenta" Type="int" Nullable="false" />
+          <Property Name="data_wizyty" Type="date" Nullable="false" />
+          <Property Name="godzina" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Adres__Id_pacjen__04459E07">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Adres" Type="Self.Adres" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="Id_pacjenta" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="Id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dawkowani__Id_di__10AB74EC">
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="1" />
+          <End Role="dawkowanie" Type="Self.dawkowanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnoza">
+              <PropertyRef Name="Id_diagnozy" />
+            </Principal>
+            <Dependent Role="dawkowanie">
+              <PropertyRef Name="Id_diagnozy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dawkowani__Id_le__119F9925">
+          <End Role="Lekarstwa" Type="Self.Lekarstwa" Multiplicity="0..1" />
+          <End Role="dawkowanie" Type="Self.dawkowanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lekarstwa">
+              <PropertyRef Name="Id_lekarstwa" />
+            </Principal>
+            <Dependent Role="dawkowanie">
+              <PropertyRef Name="Id_lekarstwa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diagnoza__Id_lek__0CDAE408">
+          <End Role="Lekarz" Type="Self.Lekarz" Multiplicity="1" />
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lekarz">
+              <PropertyRef Name="Id_lekarza" />
+            </Principal>
+            <Dependent Role="Diagnoza">
+              <PropertyRef Name="Id_lekarza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diagnoza__Id_wiz__0DCF0841">
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="0..1" />
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wizyta">
+              <PropertyRef Name="Id_wizyty" />
+            </Principal>
+            <Dependent Role="Diagnoza">
+              <PropertyRef Name="Id_wizyty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Id_lekar__09FE775D">
+          <End Role="Lekarz" Type="Self.Lekarz" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lekarz">
+              <PropertyRef Name="Id_lekarza" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Id_lekarza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Id_pacje__090A5324">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="Id_pacjenta" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterModelStoreContainer">
+          <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dawkowanie" EntityType="Self.dawkowanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diagnoza" EntityType="Self.Diagnoza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lekarstwa" EntityType="Self.Lekarstwa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lekarz" EntityType="Self.Lekarz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacjent" EntityType="Self.Pacjent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wizyta" EntityType="Self.Wizyta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Adres__Id_pacjen__04459E07" Association="Self.FK__Adres__Id_pacjen__04459E07">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Adres" EntitySet="Adres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dawkowani__Id_di__10AB74EC" Association="Self.FK__dawkowani__Id_di__10AB74EC">
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+            <End Role="dawkowanie" EntitySet="dawkowanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dawkowani__Id_le__119F9925" Association="Self.FK__dawkowani__Id_le__119F9925">
+            <End Role="Lekarstwa" EntitySet="Lekarstwa" />
+            <End Role="dawkowanie" EntitySet="dawkowanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diagnoza__Id_lek__0CDAE408" Association="Self.FK__Diagnoza__Id_lek__0CDAE408">
+            <End Role="Lekarz" EntitySet="Lekarz" />
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diagnoza__Id_wiz__0DCF0841" Association="Self.FK__Diagnoza__Id_wiz__0DCF0841">
+            <End Role="Wizyta" EntitySet="Wizyta" />
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Id_lekar__09FE775D" Association="Self.FK__Wizyta__Id_lekar__09FE775D">
+            <End Role="Lekarz" EntitySet="Lekarz" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Id_pacje__090A5324" Association="Self.FK__Wizyta__Id_pacje__090A5324">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="Id_pacjenta" />
+          </Key>
+          <Property Name="Id_pacjenta" Type="Int32" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nr_domu_mieszkania" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Pacjent" Relationship="Self.FK__Adres__Id_pacjen__04459E07" FromRole="Adres" ToRole="Pacjent" />
+        </EntityType>
+        <EntityType Name="dawkowanie">
+          <Key>
+            <PropertyRef Name="Id_dawkowanie" />
+          </Key>
+          <Property Name="Id_dawkowanie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Od_kiedy" Type="DateTime" Precision="0" />
+          <Property Name="Do_kiedy" Type="DateTime" Precision="0" />
+          <Property Name="ilość_dziennie" Type="Int32" />
+          <Property Name="Komentarz" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Id_diagnozy" Type="Int32" Nullable="false" />
+          <Property Name="Id_lekarstwa" Type="Int32" />
+          <NavigationProperty Name="Diagnoza" Relationship="Self.FK__dawkowani__Id_di__10AB74EC" FromRole="dawkowanie" ToRole="Diagnoza" />
+          <NavigationProperty Name="Lekarstwa" Relationship="Self.FK__dawkowani__Id_le__119F9925" FromRole="dawkowanie" ToRole="Lekarstwa" />
+        </EntityType>
+        <EntityType Name="Diagnoza">
+          <Key>
+            <PropertyRef Name="Id_diagnozy" />
+          </Key>
+          <Property Name="Id_diagnozy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Jednostka_Chorobowa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Id_lekarza" Type="Int32" Nullable="false" />
+          <Property Name="Id_wizyty" Type="Int32" />
+          <NavigationProperty Name="dawkowanie" Relationship="Self.FK__dawkowani__Id_di__10AB74EC" FromRole="Diagnoza" ToRole="dawkowanie" />
+          <NavigationProperty Name="Lekarz" Relationship="Self.FK__Diagnoza__Id_lek__0CDAE408" FromRole="Diagnoza" ToRole="Lekarz" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.FK__Diagnoza__Id_wiz__0DCF0841" FromRole="Diagnoza" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="Lekarstwa">
+          <Key>
+            <PropertyRef Name="Id_lekarstwa" />
+          </Key>
+          <Property Name="Id_lekarstwa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="dawkowanie" Relationship="Self.FK__dawkowani__Id_le__119F9925" FromRole="Lekarstwa" ToRole="dawkowanie" />
+        </EntityType>
+        <EntityType Name="Lekarz">
+          <Key>
+            <PropertyRef Name="Id_lekarza" />
+          </Key>
+          <Property Name="Id_lekarza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Diagnoza" Relationship="Self.FK__Diagnoza__Id_lek__0CDAE408" FromRole="Lekarz" ToRole="Diagnoza" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.FK__Wizyta__Id_lekar__09FE775D" FromRole="Lekarz" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="Pacjent">
+          <Key>
+            <PropertyRef Name="Id_pacjenta" />
+          </Key>
+          <Property Name="Id_pacjenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK__Adres__Id_pacjen__04459E07" FromRole="Pacjent" ToRole="Adres" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.FK__Wizyta__Id_pacje__090A5324" FromRole="Pacjent" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="Wizyta">
+          <Key>
+            <PropertyRef Name="Id_wizyty" />
+          </Key>
+          <Property Name="Id_wizyty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_lekarza" Type="Int32" Nullable="false" />
+          <Property Name="Id_pacjenta" Type="Int32" Nullable="false" />
+          <Property Name="data_wizyty" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="godzina" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Diagnoza" Relationship="Self.FK__Diagnoza__Id_wiz__0DCF0841" FromRole="Wizyta" ToRole="Diagnoza" />
+          <NavigationProperty Name="Lekarz" Relationship="Self.FK__Wizyta__Id_lekar__09FE775D" FromRole="Wizyta" ToRole="Lekarz" />
+          <NavigationProperty Name="Pacjent" Relationship="Self.FK__Wizyta__Id_pacje__090A5324" FromRole="Wizyta" ToRole="Pacjent" />
+        </EntityType>
+        <Association Name="FK__Adres__Id_pacjen__04459E07">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Adres" Type="Self.Adres" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="Id_pacjenta" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="Id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dawkowani__Id_di__10AB74EC">
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="1" />
+          <End Role="dawkowanie" Type="Self.dawkowanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnoza">
+              <PropertyRef Name="Id_diagnozy" />
+            </Principal>
+            <Dependent Role="dawkowanie">
+              <PropertyRef Name="Id_diagnozy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dawkowani__Id_le__119F9925">
+          <End Role="Lekarstwa" Type="Self.Lekarstwa" Multiplicity="0..1" />
+          <End Role="dawkowanie" Type="Self.dawkowanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lekarstwa">
+              <PropertyRef Name="Id_lekarstwa" />
+            </Principal>
+            <Dependent Role="dawkowanie">
+              <PropertyRef Name="Id_lekarstwa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diagnoza__Id_lek__0CDAE408">
+          <End Role="Lekarz" Type="Self.Lekarz" Multiplicity="1" />
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lekarz">
+              <PropertyRef Name="Id_lekarza" />
+            </Principal>
+            <Dependent Role="Diagnoza">
+              <PropertyRef Name="Id_lekarza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diagnoza__Id_wiz__0DCF0841">
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="0..1" />
+          <End Role="Diagnoza" Type="Self.Diagnoza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wizyta">
+              <PropertyRef Name="Id_wizyty" />
+            </Principal>
+            <Dependent Role="Diagnoza">
+              <PropertyRef Name="Id_wizyty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Id_lekar__09FE775D">
+          <End Role="Lekarz" Type="Self.Lekarz" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lekarz">
+              <PropertyRef Name="Id_lekarza" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Id_lekarza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Id_pacje__090A5324">
+          <End Role="Pacjent" Type="Self.Pacjent" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjent">
+              <PropertyRef Name="Id_pacjenta" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adres" EntityType="Self.Adres" />
+          <EntitySet Name="dawkowanie" EntityType="Self.dawkowanie" />
+          <EntitySet Name="Diagnoza" EntityType="Self.Diagnoza" />
+          <EntitySet Name="Lekarstwa" EntityType="Self.Lekarstwa" />
+          <EntitySet Name="Lekarz" EntityType="Self.Lekarz" />
+          <EntitySet Name="Pacjent" EntityType="Self.Pacjent" />
+          <EntitySet Name="Wizyta" EntityType="Self.Wizyta" />
+          <AssociationSet Name="FK__Adres__Id_pacjen__04459E07" Association="Self.FK__Adres__Id_pacjen__04459E07">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Adres" EntitySet="Adres" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dawkowani__Id_di__10AB74EC" Association="Self.FK__dawkowani__Id_di__10AB74EC">
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+            <End Role="dawkowanie" EntitySet="dawkowanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dawkowani__Id_le__119F9925" Association="Self.FK__dawkowani__Id_le__119F9925">
+            <End Role="Lekarstwa" EntitySet="Lekarstwa" />
+            <End Role="dawkowanie" EntitySet="dawkowanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diagnoza__Id_lek__0CDAE408" Association="Self.FK__Diagnoza__Id_lek__0CDAE408">
+            <End Role="Lekarz" EntitySet="Lekarz" />
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diagnoza__Id_wiz__0DCF0841" Association="Self.FK__Diagnoza__Id_wiz__0DCF0841">
+            <End Role="Wizyta" EntitySet="Wizyta" />
+            <End Role="Diagnoza" EntitySet="Diagnoza" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Id_lekar__09FE775D" Association="Self.FK__Wizyta__Id_lekar__09FE775D">
+            <End Role="Lekarz" EntitySet="Lekarz" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Id_pacje__090A5324" Association="Self.FK__Wizyta__Id_pacje__090A5324">
+            <End Role="Pacjent" EntitySet="Pacjent" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+          <EntitySetMapping Name="Adres">
+            <EntityTypeMapping TypeName="masterModel.Adres">
+              <MappingFragment StoreEntitySet="Adres">
+                <ScalarProperty Name="Id_pacjenta" ColumnName="Id_pacjenta" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="nr_domu_mieszkania" ColumnName="nr_domu_mieszkania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dawkowanie">
+            <EntityTypeMapping TypeName="masterModel.dawkowanie">
+              <MappingFragment StoreEntitySet="dawkowanie">
+                <ScalarProperty Name="Id_dawkowanie" ColumnName="Id_dawkowanie" />
+                <ScalarProperty Name="Od_kiedy" ColumnName="Od_kiedy" />
+                <ScalarProperty Name="Do_kiedy" ColumnName="Do_kiedy" />
+                <ScalarProperty Name="ilość_dziennie" ColumnName="ilość_dziennie" />
+                <ScalarProperty Name="Komentarz" ColumnName="Komentarz" />
+                <ScalarProperty Name="Id_diagnozy" ColumnName="Id_diagnozy" />
+                <ScalarProperty Name="Id_lekarstwa" ColumnName="Id_lekarstwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnoza">
+            <EntityTypeMapping TypeName="masterModel.Diagnoza">
+              <MappingFragment StoreEntitySet="Diagnoza">
+                <ScalarProperty Name="Id_diagnozy" ColumnName="Id_diagnozy" />
+                <ScalarProperty Name="Jednostka_Chorobowa" ColumnName="Jednostka_Chorobowa" />
+                <ScalarProperty Name="Id_lekarza" ColumnName="Id_lekarza" />
+                <ScalarProperty Name="Id_wizyty" ColumnName="Id_wizyty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lekarstwa">
+            <EntityTypeMapping TypeName="masterModel.Lekarstwa">
+              <MappingFragment StoreEntitySet="Lekarstwa">
+                <ScalarProperty Name="Id_lekarstwa" ColumnName="Id_lekarstwa" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lekarz">
+            <EntityTypeMapping TypeName="masterModel.Lekarz">
+              <MappingFragment StoreEntitySet="Lekarz">
+                <ScalarProperty Name="Id_lekarza" ColumnName="Id_lekarza" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacjent">
+            <EntityTypeMapping TypeName="masterModel.Pacjent">
+              <MappingFragment StoreEntitySet="Pacjent">
+                <ScalarProperty Name="Id_pacjenta" ColumnName="Id_pacjenta" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wizyta">
+            <EntityTypeMapping TypeName="masterModel.Wizyta">
+              <MappingFragment StoreEntitySet="Wizyta">
+                <ScalarProperty Name="Id_wizyty" ColumnName="Id_wizyty" />
+                <ScalarProperty Name="Id_lekarza" ColumnName="Id_lekarza" />
+                <ScalarProperty Name="Id_pacjenta" ColumnName="Id_pacjenta" />
+                <ScalarProperty Name="data_wizyty" ColumnName="data_wizyty" />
+                <ScalarProperty Name="godzina" ColumnName="godzina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
