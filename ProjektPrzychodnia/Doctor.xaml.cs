@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjektPrzychodnia
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Doctor.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Doctor : Window
     {
-        public MainWindow()
+        public Doctor()
         {
             InitializeComponent();
-        }
-
-        private void PatientClick(object sender, RoutedEventArgs e)
-        {
-            Patient Pt = new Patient();
-            Pt.Show();
         }
     }
 }
