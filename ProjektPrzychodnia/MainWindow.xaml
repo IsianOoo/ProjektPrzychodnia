@@ -44,18 +44,20 @@
                 <RadioButton Content="Pacjenci"
                              Height="50"
                              FontSize="20"
-                             
+                             Foreground="White"
                              Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked" RenderTransformOrigin="1,0.5" Margin="0"/>
 
                 <RadioButton Content="Lekarze"
                             
                              Height="50"
                              FontSize="20"
+                             Foreground="White"
                              Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
                 <RadioButton Content="Wizyty"
                             
                              Height="50"
                              FontSize="20"
+                             Foreground="White"
                              Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
             </StackPanel>
 
