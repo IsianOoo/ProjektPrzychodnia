@@ -5,35 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektPrzychodnia"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="920"
+        Title="MainWindow" Height="450" Width="380"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="#66ccff"
-            CornerRadius="20">
+    <Border 
+            CornerRadius="20"
+            Grid.RowSpan="2">
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#7be9f6" Offset="0.0"/>
+                <GradientStop Color="#f083da" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <Grid>
-            <Grid.ColumnDefinitions>
+            <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="225"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="225"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>-->
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
+                <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock
+            <StackPanel>
+                <Image Source="png/289966422_2118608808299585_4506405560182051746_n.png" Width="100" Margin="0,7,-19,0"/>
+                <TextBlock
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontSize="30"
-                       Foreground="Black" Grid.Column="1" Margin="89,10,100,10" Width="281" Height="55"><Run Text="        "/><Run Text="Przychodnia"/></TextBlock>
+                       FontSize="50"
+                       Foreground="White" Margin="54,20,33,55" Width="264" Height="74" FontFamily="helvetica" FontWeight="Light" Text="Przychodnia" RenderTransformOrigin="0.48,0.498"/>
+
+            </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <RadioButton Content="Pacjenci"
                              Height="50"
                              FontSize="20"
-                             />
+                             
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked" RenderTransformOrigin="1,0.5" Margin="0"/>
+
+                <RadioButton Content="Lekarze"
+                            
+                             Height="50"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
+                <RadioButton Content="Wizyty"
+                            
+                             Height="50"
+                             FontSize="20"
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
             </StackPanel>
 
 
