@@ -25,8 +25,8 @@ namespace ProjektPrzychodnia
         public string nazwisko { get; set; }
         public string Pesel { get; set; }
     
-        public virtual Adres Adres { get; set; }
+       internal virtual Adres Adres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wizyta> Wizyta { get; set; }
+        internal virtual ICollection<Wizyta> Wizyta { get; set; }
     }
 }

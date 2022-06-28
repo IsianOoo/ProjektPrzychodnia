@@ -19,25 +19,15 @@ namespace ProjektPrzychodnia
     /// </summary>
     public partial class Patient : Window
     {
+        PrzychodniaEntities DataBase = new PrzychodniaEntities();
         public Patient()
         {
             InitializeComponent();
+            PatientTable.ItemsSource = DataBase.Pacjent.ToList();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+     
 
-            ProjektPrzychodnia.masterDataSet masterDataSet = ((ProjektPrzychodnia.masterDataSet)(this.FindResource("masterDataSet")));
-            // Load data into the table Pacjent. You can modify this code as needed.
-            ProjektPrzychodnia.masterDataSetTableAdapters.PacjentTableAdapter masterDataSetPacjentTableAdapter = new ProjektPrzychodnia.masterDataSetTableAdapters.PacjentTableAdapter();
-            masterDataSetPacjentTableAdapter.Fill(masterDataSet.Pacjent);
-            System.Windows.Data.CollectionViewSource pacjentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("pacjentViewSource")));
-            pacjentViewSource.View.MoveCurrentToFirst();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
