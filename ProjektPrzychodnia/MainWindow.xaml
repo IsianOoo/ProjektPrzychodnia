@@ -41,12 +41,11 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1">
-                <RadioButton x:Name="PatientClick"
-                             Content="Pacjenci"
+                <RadioButton Content="Pacjenci"
                              Height="50"
                              FontSize="20"
                              Foreground="White"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"  />
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
 
                 <RadioButton Content="Lekarze"
                             
