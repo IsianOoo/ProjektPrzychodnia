@@ -25,24 +25,10 @@ namespace ProjektPrzychodnia
             InitializeComponent();
         }
 
-        private void ShowPatient_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void ShowDoctor_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ShowVisit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            Patient Pt = new Patient();
+            Pt.Show();
         }
     }
 }

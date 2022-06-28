@@ -13,10 +13,10 @@ namespace ProjektPrzychodnia
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class masterEntities : DbContext
+    public partial class PrzychodniaEntities : DbContext
     {
-        public masterEntities()
-            : base("name=masterEntities")
+        public PrzychodniaEntities()
+            : base("name=PrzychodniaEntities")
         {
         }
     

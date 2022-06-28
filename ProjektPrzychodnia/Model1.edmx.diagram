@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e0bd33a69be943ea9fdfe01a103e9fda" Name="Diagram1" ZoomLevel="93">
-        <EntityTypeShape EntityType="masterModel.Adres" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.dawkowanie" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.Diagnoza" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.Lekarstwa" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.Lekarz" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.Pacjent" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="masterModel.Wizyta" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="masterModel.FK__Adres__Id_pacjen__04459E07" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK__dawkowani__Id_di__10AB74EC" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK__dawkowani__Id_le__119F9925" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK__Diagnoza__Id_lek__0CDAE408" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK__Diagnoza__Id_wiz__0DCF0841" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK__Wizyta__Id_lekar__09FE775D" ManuallyRouted="false" />
-        <AssociationConnector Association="masterModel.FK__Wizyta__Id_pacje__090A5324" ManuallyRouted="false" />
+      <Diagram DiagramId="63dc0d259e0b4098888fd5d0b91ad24f" Name="Diagram1">
+        <EntityTypeShape EntityType="PrzychodniaModel.Adres" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrzychodniaModel.dawkowanie" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrzychodniaModel.Diagnoza" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrzychodniaModel.Lekarstwa" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrzychodniaModel.Lekarz" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrzychodniaModel.Pacjent" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PrzychodniaModel.Wizyta" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="PrzychodniaModel.FK__Adres__Id_pacjen__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="PrzychodniaModel.FK__dawkowani__Id_di__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="PrzychodniaModel.FK__dawkowani__Id_le__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="PrzychodniaModel.FK__Diagnoza__Id_lek__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="PrzychodniaModel.FK__Diagnoza__Id_wiz__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="PrzychodniaModel.FK__Wizyta__Id_lekar__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="PrzychodniaModel.FK__Wizyta__Id_pacje__2E1BDC42" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -9,7 +9,11 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:masterDataSet x:Key="masterDataSet"/>
+        <CollectionViewSource x:Key="pacjentViewSource" Source="{Binding Pacjent, Source={StaticResource masterDataSet}}"/>
+    </Window.Resources>
     <Border 
             CornerRadius="20"
             Grid.RowSpan="2">
@@ -19,10 +23,11 @@
                 <GradientStop Color="#f083da" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-        <Grid>
-            
+        <Grid DataContext="{StaticResource pacjentViewSource}">
+            <DataGrid HorizontalAlignment="Left" Height="205" Margin="10,10,0,0" VerticalAlignment="Top" Width="780" ItemsSource="{Binding}" SelectionChanged="DataGrid_SelectionChanged"/>
 
-            
+
+
 
         </Grid>
 
