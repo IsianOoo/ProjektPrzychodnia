@@ -27,7 +27,7 @@ namespace ProjektPrzychodnia
 
         private void ShowPatient_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ShowDoctor_Click(object sender, RoutedEventArgs e)
