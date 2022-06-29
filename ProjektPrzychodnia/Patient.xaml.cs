@@ -20,14 +20,32 @@ namespace ProjektPrzychodnia
     public partial class Patient : Window
     {
         PrzychodniaEntities DataBase = new PrzychodniaEntities();
+        
+
         public Patient()
         {
             InitializeComponent();
             PatientTable.ItemsSource = DataBase.Pacjent.ToList();
         }
 
-     
+        
 
-       
+        private void Button_AddPatient(object sender, RoutedEventArgs e)
+        {
+            Pacjent patient = new Pacjent()
+            {
+                Imie = TextBoxFirstName.Text,
+                nazwisko = TextBoxSumName.Text,
+                Pesel = TextBoXPesel.Text
+            };
+            DataBase.Pacjent.Add(patient);
+            DataBase.SaveChanges();
+            PatientTable.ItemsSource = DataBase.Pacjent.ToList();
+        }
+
+        private void Button_DeletePatient(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

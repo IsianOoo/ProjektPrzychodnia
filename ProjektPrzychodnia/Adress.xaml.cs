@@ -19,9 +19,11 @@ namespace ProjektPrzychodnia
     /// </summary>
     public partial class Adress : Window
     {
+        PrzychodniaEntities DataBase = new PrzychodniaEntities();
         public Adress()
         {
             InitializeComponent();
+            AdressTable.ItemsSource = DataBase.Adres.ToList();
         }
     }
 }

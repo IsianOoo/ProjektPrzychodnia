@@ -8,7 +8,7 @@
         Title="Patient" Height="450" Width="800"
         
         Background="Transparent">
-    
+
     <Border 
             CornerRadius="20"
             Grid.RowSpan="2">
@@ -19,7 +19,23 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <DataGrid x:Name="PatientTable" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="777"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <DataGrid x:Name="PatientTable" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="777"/>
+            </StackPanel>
+
+            <TextBlock TextWrapping="Wrap" Text="Imie" Height="35" Width="100"  Margin="57,25,635,90" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <Button x:Name="AddPatient" Content="Dodaj" Height="35" Width="100" FontSize="20" Click="Button_AddPatient" Background="Transparent" Foreground="White" FontWeight="Light" Margin="669,25,4,90" Grid.Row="1"/>
+            <Button x:Name="DelatePatient" Content="Usuń" Height="35" Width="100" FontSize="20" Click="Button_DeletePatient" Background="Transparent" Foreground="White" FontWeight="Light" Margin="669,92,4,23" Grid.Row="1"/>
+            <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Height="28" Margin="10,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <TextBlock  TextWrapping="Wrap" Text="Nazwisko" Height="35" Width="100"  Margin="284,25,408,90" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <TextBox x:Name="TextBoxSumName" HorizontalAlignment="Left" Height="28" Margin="242,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+            <TextBlock  TextWrapping="Wrap" Text="Pesel" Height="35" Width="100"  Margin="495,25,197,90" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <TextBox   x:Name="TextBoXPesel" HorizontalAlignment="Left" Height="28" Margin="475,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
         </Grid>
 
 

@@ -14,7 +14,20 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <DataGrid x:Name="DoctorTable" HorizontalAlignment="Left" Height="214" Margin="10,24,0,0" VerticalAlignment="Top" Width="777"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <DataGrid x:Name="DoctorTable" HorizontalAlignment="Left" Height="214" Margin="10,24,0,0" VerticalAlignment="Top" Width="777"/>
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap" Text="Imie" Height="35" Width="100"  Margin="57,25,635,90" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <Button x:Name="AddDoctor" Content="Dodaj" Height="35" Width="100" FontSize="20" Click="Button_AddDoctor" Background="Transparent" Foreground="White" FontWeight="Light" Margin="669,25,4,90" Grid.Row="1"/>
+            <Button x:Name="DelateDoctor" Content="Usuń" Height="35" Width="100" FontSize="20" Click="Button_DeleteDoctor" Background="Transparent" Foreground="White" FontWeight="Light" Margin="669,92,4,23" Grid.Row="1"/>
+            <TextBox x:Name="TextBoxFirstNameDoctor" HorizontalAlignment="Left" Height="28" Margin="10,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <TextBlock  TextWrapping="Wrap" Text="Nazwisko" Height="35" Width="100"  Margin="284,25,408,90" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <TextBox x:Name="TextBoxSumNameDoctor" HorizontalAlignment="Left" Height="28" Margin="242,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+           
 
         </Grid>
     </Border>

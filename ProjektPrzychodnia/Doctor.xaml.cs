@@ -20,9 +20,26 @@ namespace ProjektPrzychodnia
     public partial class Doctor : Window
     {
         PrzychodniaEntities DataBase = new PrzychodniaEntities();
+        private string nazwisko;
+        private string Imie;
+
         public Doctor()
         {
             InitializeComponent();
+            DoctorTable.ItemsSource = DataBase.Lekarz.ToList();
+        }
+
+        
+
+        private void Button_AddDoctor(object sender, RoutedEventArgs e)
+        {
+            Doctor doktor = new Doctor()
+            {
+                Imie = TextBoxFirstNameDoctor.Text,
+                nazwisko = TextBoxSumNameDoctor.Text
+            };
+            DataBase.Lekarz.Add(doktor);
+            DataBase.SaveChanges();
             DoctorTable.ItemsSource = DataBase.Lekarz.ToList();
         }
     }
