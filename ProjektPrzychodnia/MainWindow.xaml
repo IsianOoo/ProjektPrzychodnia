@@ -46,6 +46,7 @@
                 <Button x:Name="ButtonPatient" Content="Pacjenci" Height="50" FontSize="20" Click="Button_PatientClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
                 <Button x:Name="ButtonDoctor" Content="Lekarze" Height="50" FontSize="20" Click="Button_DoctorClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
                 <Button x:Name="ButtonVisit" Content="Wizyty" Height="50" FontSize="20" Click="Button_VisitClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
+                <Button x:Name="ButtonAdress" Content="Adresy" Height="50" FontSize="20" Click="Button_AdressClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
 
 
             </StackPanel>

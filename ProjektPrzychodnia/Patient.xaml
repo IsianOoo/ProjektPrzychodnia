@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:ProjektPrzychodnia"
         mc:Ignorable="d"
         Title="Patient" Height="450" Width="800"
-        WindowStyle="None"
-        ResizeMode="NoResize"
-        Background="Transparent"
-        AllowsTransparency="True" >
+        
+        Background="Transparent">
     
     <Border 
             CornerRadius="20"
@@ -21,7 +19,7 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <DataGrid x:Name="PatientTable" HorizontalAlignment="Left" Height="213" Margin="13,10,0,0" VerticalAlignment="Top" Width="777"/>
+            <DataGrid x:Name="PatientTable" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="777"/>
         </Grid>
 
 

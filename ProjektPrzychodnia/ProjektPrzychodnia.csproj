@@ -67,6 +67,9 @@
     <Compile Include="Adres.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Adress.xaml.cs">
+      <DependentUpon>Adress.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dawkowanie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -114,6 +117,10 @@
     <Compile Include="Wizyta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="Adress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Doctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

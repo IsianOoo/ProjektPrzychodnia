@@ -42,5 +42,11 @@ namespace ProjektPrzychodnia
             Visit Vs = new Visit();
             Vs.Show();
         }
+
+        private void Button_AdressClick(object sender, RoutedEventArgs e)
+        {
+            Adress Ad = new Adress();
+            Ad.Show();
+        }
     }
 }

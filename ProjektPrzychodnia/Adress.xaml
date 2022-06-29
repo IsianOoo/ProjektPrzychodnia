@@ -1,11 +1,11 @@
-﻿<Window x:Class="ProjektPrzychodnia.Doctor"
+﻿<Window x:Class="ProjektPrzychodnia.Adress"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektPrzychodnia"
         mc:Ignorable="d"
-        Title="Doctor" Height="450" Width="800">
+        Title="Adress" Height="450" Width="800">
     <Border>
         <Border.Background>
             <LinearGradientBrush>
@@ -14,7 +14,16 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <DataGrid x:Name="DoctorTable" HorizontalAlignment="Left" Height="214" Margin="10,24,0,0" VerticalAlignment="Top" Width="777"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <DataGrid x:Name="AdressTable" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="777"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                
+            </StackPanel>
 
         </Grid>
     </Border>
