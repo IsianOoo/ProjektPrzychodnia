@@ -31,34 +31,23 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel>
-                <Image Source="png/289966422_2118608808299585_4506405560182051746_n.png" Width="100" Margin="0,7,-19,0"/>
+                <Image Source="png/289966422_2118608808299585_4506405560182051746_n.png" Width="100" Margin="130,7,130,0"/>
                 <TextBlock
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        FontSize="50"
-                       Foreground="White" Margin="54,20,33,55" Width="264" Height="74" FontFamily="helvetica" FontWeight="Light" Text="Przychodnia" RenderTransformOrigin="0.48,0.498"/>
+                       Foreground="White" Margin="33,20,33,55" Width="264" Height="74" FontFamily="helvetica" FontWeight="Light" Text="Przychodnia" RenderTransformOrigin="0.517,0.469"/>
 
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1">
-                <RadioButton Content="Pacjenci"
-                             Height="50"
-                             FontSize="20"
-                             Foreground="White"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
 
-                <RadioButton Content="Lekarze"
-                            
-                             Height="50"
-                             FontSize="20"
-                             Foreground="White"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
-                <RadioButton Content="Wizyty"
-                            
-                             Height="50"
-                             FontSize="20"
-                             Foreground="White"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
+
+                <Button x:Name="ButtonPatient" Content="Pacjenci" Height="50" FontSize="20" Click="Button_PatientClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
+                <Button x:Name="ButtonDoctor" Content="Lekarze" Height="50" FontSize="20" Click="Button_DoctorClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
+                <Button x:Name="ButtonVisit" Content="Wizyty" Height="50" FontSize="20" Click="Button_VisitClick" Background="Transparent" Foreground="White" FontWeight="Light"/>
+
+
             </StackPanel>
 
 

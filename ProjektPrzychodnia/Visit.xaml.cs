@@ -15,15 +15,15 @@ using System.Windows.Shapes;
 namespace ProjektPrzychodnia
 {
     /// <summary>
-    /// Interaction logic for Doctor.xaml
+    /// Interaction logic for Visit.xaml
     /// </summary>
-    public partial class Doctor : Window
+    public partial class Visit : Window
     {
         PrzychodniaEntities DataBase = new PrzychodniaEntities();
-        public Doctor()
+        public Visit()
         {
             InitializeComponent();
-            DoctorTable.ItemsSource = DataBase.Lekarz.ToList();
+            VisitTable.ItemsSource = DataBase.Wizyta.ToList();
         }
     }
 }
