@@ -45,7 +45,10 @@ namespace ProjektPrzychodnia
 
         private void Button_DeleteDoctor(object sender, RoutedEventArgs e)
         {
-
+            if(DoctorTable.SelectedValue != null)
+            {
+                var doktor = DataBase.Lekarz.FirstOrDefault(p => p.Id_lekarza == ((Lekarz)DoctorTable.SelectedValue).Id_lekarza);
+            }
         }
 
         private void Button_ClickMainwindown(object sender, RoutedEventArgs e)

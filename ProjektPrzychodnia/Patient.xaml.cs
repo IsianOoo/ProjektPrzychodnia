@@ -45,7 +45,13 @@ namespace ProjektPrzychodnia
 
         private void Button_DeletePatient(object sender, RoutedEventArgs e)
         {
-
+            if(PatientTable.SelectedValue   != null)
+            {
+                var pacjent = DataBase.Pacjent.FirstOrDefault(p => p.Id_pacjenta == ((Pacjent)PatientTable.SelectedValue).Id_pacjenta);
+                DataBase.Pacjent.Remove(pacjent);
+                DataBase.SaveChanges();
+                PatientTable.ItemsSource = DataBase.Pacjent.ToList();
+            }
         }
 
         private void Button_ClickMainwindownFromPatient(object sender, RoutedEventArgs e)
