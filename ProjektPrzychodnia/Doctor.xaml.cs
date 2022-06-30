@@ -50,7 +50,7 @@ namespace ProjektPrzychodnia
                 
                 var doktor = DataBase.Lekarz.FirstOrDefault(p => p.Id_lekarza == ((Lekarz)DoctorTable.SelectedValue).Id_lekarza);
 
-                DataBase.Lekarz.Add(doktor);
+                DataBase.Lekarz.Remove(doktor);
                 DataBase.SaveChanges();
                 DoctorTable.ItemsSource = DataBase.Lekarz.ToList();
             }
