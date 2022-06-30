@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Visit" Height="450" Width="800">
     <Border>
-        
+
         <Border.Background>
             <LinearGradientBrush>
                 <GradientStop Color="#7be9f6" Offset="0.0"/>
@@ -17,8 +17,14 @@
         <Grid>
             <StackPanel>
                 <DataGrid x:Name="VisitTable" HorizontalAlignment="Left" Height="213" VerticalAlignment="Top" Width="777" Margin="10,10,0,0"/>
+
+
             </StackPanel>
             <Button x:Name="BackMainWindownFromVisit"  Content="Wróć" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickMainwindownfromVisit" Background="Transparent" Foreground="White" FontWeight="Light"  />
+            <DatePicker Margin="24,266,668,121"/>
+            <TextBlock  TextWrapping="Wrap" Text="Dodaj date" Height="34" Width="134"  Margin="10,232,648,153" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
+            <TextBox TextWrapping="Wrap" Text="HH:MM:SS" Margin="173,269,468,121"/>
+            <TextBlock  TextWrapping="Wrap" Text="Dodaj godzine" Height="34" Width="151"  Margin="173,235,468,150" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
 
         </Grid>
     </Border>
