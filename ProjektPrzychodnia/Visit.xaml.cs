@@ -25,5 +25,12 @@ namespace ProjektPrzychodnia
             InitializeComponent();
             VisitTable.ItemsSource = DataBase.Wizyta.ToList();
         }
+
+        private void Button_ClickMainwindownfromVisit(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            this.Close();
+            window.Show();
+        }
     }
 }
