@@ -33,7 +33,7 @@ namespace ProjektPrzychodnia
 
         private void Button_AddDoctor(object sender, RoutedEventArgs e)
         {
-            Doctor doktor = new Doctor()
+            Lekarz doktor = new Lekarz()
             {
                 Imie = TextBoxFirstNameDoctor.Text,
                 nazwisko = TextBoxSumNameDoctor.Text
@@ -41,6 +41,18 @@ namespace ProjektPrzychodnia
             DataBase.Lekarz.Add(doktor);
             DataBase.SaveChanges();
             DoctorTable.ItemsSource = DataBase.Lekarz.ToList();
+        }
+
+        private void Button_DeleteDoctor(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_ClickMainwindown(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }
