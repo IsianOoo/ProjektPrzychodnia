@@ -50,8 +50,9 @@ namespace ProjektPrzychodnia
 
         private void Button_ClickMainwindown(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            
             MainWindow mainWindow = new MainWindow();
+            this.Close();
             mainWindow.Show();
         }
     }

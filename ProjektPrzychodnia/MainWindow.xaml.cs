@@ -29,24 +29,28 @@ namespace ProjektPrzychodnia
         {
             Patient Pt = new Patient();
             Pt.Show();
+            this.Close();
         }
 
         private void Button_DoctorClick(object sender, RoutedEventArgs e)
         {
             Doctor Dc = new Doctor();
             Dc.Show();
+            this.Close();
         }
 
         private void Button_VisitClick(object sender, RoutedEventArgs e)
         {
             Visit Vs = new Visit();
             Vs.Show();
+            this.Close();
         }
 
         private void Button_AdressClick(object sender, RoutedEventArgs e)
         {
             Adress Ad = new Adress();
             Ad.Show();
+            this.Close();
         }
     }
 }

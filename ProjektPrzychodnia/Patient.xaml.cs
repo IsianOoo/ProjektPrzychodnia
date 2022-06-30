@@ -47,5 +47,13 @@ namespace ProjektPrzychodnia
         {
 
         }
+
+        private void Button_ClickMainwindownFromPatient(object sender, RoutedEventArgs e)
+        {
+            
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
     }
 }
