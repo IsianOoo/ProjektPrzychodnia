@@ -32,5 +32,15 @@ namespace ProjektPrzychodnia
             this.Close();
             window.Show();
         }
+
+        private void Button_AddAdress(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_DeleteAdress(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

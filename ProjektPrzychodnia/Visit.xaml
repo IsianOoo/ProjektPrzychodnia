@@ -21,10 +21,16 @@
 
             </StackPanel>
             <Button x:Name="BackMainWindownFromVisit"  Content="Wróć" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickMainwindownfromVisit" Background="Transparent" Foreground="White" FontWeight="Light"  />
-            <DatePicker Margin="24,266,668,121"/>
+            <DatePicker Margin="24,266,663,121"/>
             <TextBlock  TextWrapping="Wrap" Text="Dodaj date" Height="34" Width="134"  Margin="10,232,648,153" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
-            <TextBox TextWrapping="Wrap" Text="HH:MM:SS" Margin="173,269,468,121"/>
-            <TextBlock  TextWrapping="Wrap" Text="Dodaj godzine" Height="34" Width="151"  Margin="173,235,468,150" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
+            <TextBox x:Name="BoxTime" TextWrapping="Wrap" Text="HH:MM:SS" Margin="173,269,468,121"/>
+            <TextBlock  TextWrapping="Wrap" Text="Dodaj godzine" Height="34" Width="151"  Margin="173,232,468,153" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
+            <TextBox x:Name="BoxId1" TextWrapping="Wrap" Text="" Margin="10,337,631,53"/>
+            <TextBlock  TextWrapping="Wrap" Text="Id pacjenta" Height="34" Width="151"  Margin="10,303,631,82" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
+            <TextBox x:Name="BoxId2" TextWrapping="Wrap" Text="" Margin="173,337,468,53"/>
+            <TextBlock  TextWrapping="Wrap" Text="Id lekarza" Height="34" Width="151"  Margin="173,303,468,82" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
+            <Button x:Name="AddVisit" Content="Dodaj" Height="35" Width="100" FontSize="20" Click="Button_AddAdress" Background="Transparent" Foreground="White" FontWeight="Light" Margin="678,240,14,144"/>
+            <Button x:Name="DelateVisit" Content="Usuń" Height="35" Width="100" FontSize="20" Click="Button_DeleteAdress" Background="Transparent" Foreground="White" FontWeight="Light" Margin="678,311,14,73"/>
 
         </Grid>
     </Border>

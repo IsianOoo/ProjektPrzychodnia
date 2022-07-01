@@ -22,7 +22,16 @@
                 <DataGrid x:Name="AdressTable" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" VerticalAlignment="Top" Width="777"/>
             </StackPanel>
             <Button x:Name="BackMainWindownAdress"  Content="Wróć" HorizontalAlignment="Left" Margin="10,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_ClickMainwindownAdress" Background="Transparent" Foreground="White" FontWeight="Light"  />
-
+            <TextBlock TextWrapping="Wrap" Text="Miasto" Height="35" Width="100"  Margin="38,3,654,112" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <Button x:Name="AddCity" Content="Dodaj" Height="35" Width="100" FontSize="20" Click="Button_AddAdress" Background="Transparent" Foreground="White" FontWeight="Light" Margin="669,25,4,90" Grid.Row="1"/>
+            <Button x:Name="DelateAdress" Content="Usuń" Height="35" Width="100" FontSize="20" Click="Button_DeleteAdress" Background="Transparent" Foreground="White" FontWeight="Light" Margin="669,92,4,23" Grid.Row="1"/>
+            <TextBox x:Name="TextBoxCity" HorizontalAlignment="Left" Height="28" Margin="0,38,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192"/>
+            <TextBlock  TextWrapping="Wrap" Text="Ulica" Height="35" Width="100"  Margin="257,5,435,110" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <TextBox x:Name="TextBoxStreet" HorizontalAlignment="Left" Height="28" Margin="218,38,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+            <TextBlock  TextWrapping="Wrap" Text="Numer mieszkania" Height="32" Width="212"  Margin="431,3,149,115" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
+            <TextBox x:Name="TextBoxnumber" HorizontalAlignment="Left" Height="28" Margin="448,38,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+            <TextBox x:Name="TextBoxId" HorizontalAlignment="Left" Height="28" Margin="448,105,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180"/>
+            <TextBlock  TextWrapping="Wrap" Text="Id pacjenta" Height="29" Width="127"  Margin="473,71,192,50" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" Grid.Row="1" />
         </Grid>
     </Border>
 </Window>
