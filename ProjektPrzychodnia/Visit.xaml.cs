@@ -37,9 +37,9 @@ namespace ProjektPrzychodnia
         {
             Wizyta visi = new Wizyta()
             {
-                data_wizyty = Convert.ToDateTime( DataPickerVisit.Text),
-                godzina = TimeSpan.Parse( BoxTime.Text),
-                Id_lekarza = Convert.ToInt32( BoxId1.Text),
+                data_wizyty = Convert.ToDateTime(DataPickerVisit.Text),
+                godzina = TimeSpan.Parse(BoxTime.Text),
+                Id_lekarza = Convert.ToInt32(BoxId1.Text),
                 Id_pacjenta = Convert.ToInt32(BoxId2)
                 
         
