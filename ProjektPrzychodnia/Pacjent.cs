@@ -11,8 +11,10 @@ namespace ProjektPrzychodnia
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Pacjent
+    using System.ComponentModel;
+    using System.Text.RegularExpressions;
+
+    public partial class Pacjent : IDataErrorInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pacjent()
@@ -28,5 +30,25 @@ namespace ProjektPrzychodnia
        internal virtual Adres Adres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         internal virtual ICollection<Wizyta> Wizyta { get; set; }
+        public string Error { get; set; }
+       
+
+        public string this[string nazwa]
+        {
+            get
+            {
+                string komunikat = string.Empty;
+                switch(nazwa)
+                {
+                    case "Pesel":
+                        if (string.IsNullOrEmpty(Pesel))
+                            komunikat = "Pesel musi byæ wpisany!";
+                        else if (!Regex.IsMatch(Pesel, @"^\d{11}$"))
+                            komunikat = "Numer Pesel musi mieæ 11 znaków";
+                        break;
+                };
+                return komunikat;
+            }
+        }
     }
 }
