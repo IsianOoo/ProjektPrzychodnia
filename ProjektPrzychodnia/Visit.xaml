@@ -21,7 +21,7 @@
 
             </StackPanel>
             <Button x:Name="BackMainWindownFromVisit"  Content="Wróć" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_ClickMainwindownfromVisit" Background="Transparent" Foreground="White" FontWeight="Light"  />
-            <DatePicker Margin="24,266,663,121"/>
+            <DatePicker x:Name="DataPickerVisit" Margin="24,266,663,130"/>
             <TextBlock  TextWrapping="Wrap" Text="Dodaj date" Height="34" Width="134"  Margin="10,232,648,153" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />
             <TextBox x:Name="BoxTime" TextWrapping="Wrap" Text="HH:MM:SS" Margin="173,269,468,121"/>
             <TextBlock  TextWrapping="Wrap" Text="Dodaj godzine" Height="34" Width="151"  Margin="173,232,468,153" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="Transparent" Foreground="White" FontWeight="Heavy" FontSize="20" />

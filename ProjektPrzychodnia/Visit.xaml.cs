@@ -35,7 +35,25 @@ namespace ProjektPrzychodnia
 
         private void Button_AddAdress(object sender, RoutedEventArgs e)
         {
-
+            Wizyta visi = new Wizyta()
+            {
+                data_wizyty = Convert.ToDateTime( DataPickerVisit.Text),
+                godzina = TimeSpan.Parse( BoxTime.Text),
+                Id_lekarza = Convert.ToInt32( BoxId1.Text),
+                Id_pacjenta = Convert.ToInt32(BoxId2)
+                
+        
+            };
+            DataBase.Wizyta.Add(visi);
+            try
+            {
+                DataBase.SaveChanges();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("Wystpąpił błąd. Spróbuj ponownie");
+            }
+            VisitTable.ItemsSource = DataBase.Wizyta.ToList();
         }
 
         private void Button_DeleteAdress(object sender, RoutedEventArgs e)

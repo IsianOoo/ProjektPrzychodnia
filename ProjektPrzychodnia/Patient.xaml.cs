@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +34,14 @@ namespace ProjektPrzychodnia
 
         private void Button_AddPatient(object sender, RoutedEventArgs e)
         {
+            string pesel = TextBoXPesel.Text;
+            Regex regexpesel = new Regex(@"^\d{11}$");
+            Match matchpesel = regexpesel.Match(pesel);
+            if(!matchpesel.Success || TextBoXPesel.Text.Length > 11 || TextBoXPesel.Text.Length < 11)
+            {
+                MessageBox.Show("Błędny pesel");
+                return;
+            }
             Pacjent patient = new Pacjent()
             {
                 Imie = TextBoxFirstName.Text,
