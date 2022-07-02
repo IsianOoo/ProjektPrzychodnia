@@ -39,7 +39,15 @@ namespace ProjektPrzychodnia
                 Pesel = TextBoXPesel.Text
             };
             DataBase.Pacjent.Add(patient);
-            DataBase.SaveChanges();
+            try
+            {
+               DataBase.SaveChanges();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("Wystpąpił błąd. Spróbuj ponownie");
+            }
+            
             PatientTable.ItemsSource = DataBase.Pacjent.ToList();
         }
 

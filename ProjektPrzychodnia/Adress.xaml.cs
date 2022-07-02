@@ -43,7 +43,14 @@ namespace ProjektPrzychodnia
                 Id_pacjenta = Convert.ToInt32( TextBoxId.Text)
             };
             DataBase.Adres.Add(adress);
-            DataBase.SaveChanges();
+            try
+            {
+                DataBase.SaveChanges();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("Wystpąpił błąd. Spróbuj ponownie");
+            }
             AdressTable.ItemsSource = DataBase.Adres.ToList();
         }
 
