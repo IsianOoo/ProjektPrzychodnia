@@ -20,7 +20,8 @@ namespace ProjektPrzychodnia
     public partial class Patient : Window
     {
         PrzychodniaEntities DataBase = new PrzychodniaEntities();
-        
+       
+
 
         public Patient()
         {
