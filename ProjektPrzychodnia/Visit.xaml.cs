@@ -58,7 +58,13 @@ namespace ProjektPrzychodnia
 
         private void Button_DeleteAdress(object sender, RoutedEventArgs e)
         {
-
+            if(VisitTable.SelectedValue != null)
+            {
+                var wizyta = DataBase.Wizyta.FirstOrDefault(p => p.Id_wizyty == ((Wizyta)VisitTable.SelectedValue).Id_wizyty);
+                DataBase.Wizyta.Remove(wizyta);
+                DataBase.SaveChanges();
+                VisitTable.ItemsSource = DataBase.Wizyta.ToList();
+            }
         }
     }
 }
