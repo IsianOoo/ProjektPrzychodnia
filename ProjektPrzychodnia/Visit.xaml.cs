@@ -40,7 +40,7 @@ namespace ProjektPrzychodnia
                 data_wizyty = Convert.ToDateTime(DataPickerVisit.Text),
                 godzina = TimeSpan.Parse(BoxTime.Text),
                 Id_lekarza = Convert.ToInt32(BoxId1.Text),
-                Id_pacjenta = Convert.ToInt32(BoxId2)
+                Id_pacjenta = Convert.ToInt32(BoxId2.Text)
                 
         
             };
